@@ -167,17 +167,17 @@ io.on("connection", (socket) => {
 });
 
 // 5. Start the server
-db.connect((err) => {
-  if (err) {
-    console.error("❌ Error connecting to the database:", err);
-    process.exit(1);
-  } else {
-    console.log("✅ Connected to the database");
+// db.connect((err) => {
+//   if (err) {
+//     console.error("❌ Error connecting to the database:", err);
+//     process.exit(1);
+//   } else {
+//     console.log("✅ Connected to the database");
 
-    app.use("/uploads", require("express").static("uploads"));
+//   }
+// });
+app.use("/uploads", require("express").static("uploads"));
 
-    server.listen(process.env.PORT || 8000, () => {
-      console.log(`⚙️ Server is running at port: ${process.env.PORT || 8000}`);
-    });
-  }
+server.listen(process.env.PORT || 8000, () => {
+  console.log(`⚙️ Server is running at port: ${process.env.PORT || 8000}`);
 });
